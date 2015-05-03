@@ -6,25 +6,28 @@
 #include <vector>
 #include <sstream>
 
-struct MorseNode{
+//node for the Morse code tree
+struct MorseNode{ 
 	std::string letter;
 	MorseNode* left;
 	MorseNode* right;
-	//Constructor 
+	//constructor 
 	MorseNode(){
-		letter = "*"; // Letter is originally a dummy 
+		letter = "*"; //default letter value for a node
 		left = NULL;
 		right = NULL;
 	}
-	//Destructor 
+	//destructor 
 	~MorseNode() {}
 };
 
+//the tree object
 class MorseTree{
 public:
+	//constructor
 	MorseTree(){
 		root = new MorseNode;
-		build_tree(); //build tree and map
+		build_tree(); 
 	}
 	void build_tree();
 	void decode(const std::string& message);
